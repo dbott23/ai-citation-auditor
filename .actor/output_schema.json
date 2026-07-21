@@ -1,0 +1,68 @@
+{
+    "actorSpecification": 1,
+    "fields": {
+        "domain": {
+            "title": "Domain",
+            "type": "string",
+            "description": "Domain being audited (e.g. asana.com)."
+        },
+        "engine": {
+            "title": "AI engine",
+            "type": "string",
+            "description": "Engine that produced this result (chatgpt, perplexity, gemini, claude)."
+        },
+        "query": {
+            "title": "Query",
+            "type": "string",
+            "description": "The buyer-intent query sent to the engine."
+        },
+        "cited": {
+            "title": "Cited",
+            "type": "boolean",
+            "description": "Whether the domain appeared in any citation returned by the engine."
+        },
+        "citation_rank": {
+            "title": "Citation rank",
+            "type": "integer",
+            "description": "1-indexed position of the first citation matching the domain. null if not cited."
+        },
+        "citation_url": {
+            "title": "Citation URL",
+            "type": "string",
+            "description": "The specific URL cited (first match). null if not cited."
+        },
+        "all_citation_urls": {
+            "title": "All citation URLs for this domain",
+            "type": "array",
+            "description": "All URLs from this domain that appeared in citations (there may be more than one)."
+        },
+        "total_citations": {
+            "title": "Total citations returned",
+            "type": "integer",
+            "description": "Total number of source URLs the engine returned for this query (regardless of domain)."
+        }
+    },
+    "views": {
+        "overview": {
+            "title": "Citation checks",
+            "transformation": {
+                "fields": [
+                    "domain", "engine", "query",
+                    "cited", "citation_rank", "citation_url", "total_citations"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "domain":         { "label": "Domain" },
+                    "engine":         { "label": "Engine" },
+                    "query":          { "label": "Query" },
+                    "cited":          { "label": "Cited?" },
+                    "citation_rank":  { "label": "Rank" },
+                    "citation_url":   { "label": "URL cited" },
+                    "total_citations":{ "label": "Total citations" }
+                }
+            }
+        }
+    }
+}

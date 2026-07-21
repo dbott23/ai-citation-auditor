@@ -1,0 +1,28 @@
+{
+    "actorSpecification": 1,
+    "name": "ai-citation-auditor",
+    "title": "AI Citation Auditor — Is Your Website Cited by ChatGPT, Perplexity & Gemini?",
+    "description": "Check whether AI engines cite your domain as a source when answering buyer queries. Track citation rate, rank, and which URLs get picked up — across ChatGPT, Perplexity, Gemini, and Claude.",
+    "version": "0.1",
+    "buildTag": "latest",
+    "input": "./input_schema.json",
+    "output": "./output_schema.json",
+    "dockerfile": "../Dockerfile",
+    "storages": {
+        "dataset": {
+            "actorSpecification": 1,
+            "views": {
+                "overview": {
+                    "title": "Citation checks",
+                    "transformation": {
+                        "fields": [
+                            "domain", "engine", "query",
+                            "cited", "citation_rank", "citation_url", "total_citations"
+                        ]
+                    },
+                    "display": {"component": "table"}
+                }
+            }
+        }
+    }
+}

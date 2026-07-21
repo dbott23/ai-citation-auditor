@@ -1,0 +1,45 @@
+{
+    "title": "AI Citation Auditor input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "domains": {
+            "title": "Domains to audit",
+            "type": "array",
+            "description": "Domains you want to check for AI citations (e.g. \"asana.com\"). Include competitors to benchmark your citation share.",
+            "editor": "stringList",
+            "prefill": ["asana.com", "trello.com"]
+        },
+        "queries": {
+            "title": "Queries to test",
+            "type": "array",
+            "description": "Questions your customers ask AI assistants. The actor checks whether your domain is cited when AI answers each one.",
+            "editor": "stringList",
+            "prefill": [
+                "best project management tool for small teams",
+                "what project management software should a startup use"
+            ]
+        },
+        "engines": {
+            "title": "AI engines",
+            "type": "array",
+            "description": "Which engines to check. Search-backed engines (perplexity, chatgpt) return more structured citations.",
+            "editor": "select",
+            "items": {"type": "string", "enum": ["chatgpt", "perplexity", "gemini", "claude"]},
+            "default": ["chatgpt", "perplexity", "gemini"]
+        },
+        "trackTrends": {
+            "title": "Track trends (run-over-run deltas)",
+            "type": "boolean",
+            "description": "Store this run's summary and report deltas vs your previous run — schedule weekly for automatic trend reports.",
+            "default": true
+        },
+        "trendKey": {
+            "title": "Trend series key",
+            "type": "string",
+            "description": "Optional label to keep separate trend series (e.g. per client).",
+            "editor": "textfield"
+        }
+    },
+    "required": ["domains", "queries"]
+}
