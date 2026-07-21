@@ -1,16 +1,16 @@
 {
     "actorOutputSchemaVersion": 1,
-    "fields": [
-        { "name": "domain",           "type": "string",  "description": "Domain being audited (e.g. asana.com)." },
-        { "name": "engine",           "type": "string",  "description": "Engine that produced this result (chatgpt, perplexity, gemini, claude)." },
-        { "name": "query",            "type": "string",  "description": "The buyer-intent query sent to the engine." },
-        { "name": "cited",            "type": "boolean", "description": "Whether the domain appeared in any citation returned by the engine." },
-        { "name": "citation_rank",    "type": "integer", "description": "1-indexed position of the first citation matching the domain. null if not cited." },
-        { "name": "citation_url",     "type": "string",  "description": "The specific URL cited (first match). null if not cited." },
-        { "name": "all_citation_urls","type": "array",   "description": "All URLs from this domain that appeared in citations." },
-        { "name": "total_citations",  "type": "integer", "description": "Total number of source URLs the engine returned for this query." },
-        { "name": "response_truncated","type": "boolean","description": "True if the engine hit the token limit." }
-    ],
+    "properties": {
+        "domain":            { "title": "Domain",          "type": "string",  "description": "Domain being audited (e.g. asana.com)." },
+        "engine":            { "title": "Engine",          "type": "string",  "description": "Engine that produced this result (chatgpt, perplexity, gemini, claude)." },
+        "query":             { "title": "Query",           "type": "string",  "description": "The buyer-intent query sent to the engine." },
+        "cited":             { "title": "Cited?",          "type": "boolean", "description": "Whether the domain appeared in any citation returned by the engine." },
+        "citation_rank":     { "title": "Citation Rank",   "type": "integer", "description": "1-indexed position of the first citation matching the domain. null if not cited." },
+        "citation_url":      { "title": "Citation URL",    "type": "string",  "description": "The specific URL cited (first match). null if not cited." },
+        "all_citation_urls": { "title": "All Citations",   "type": "array",   "description": "All URLs from this domain that appeared in citations." },
+        "total_citations":   { "title": "Total Citations", "type": "integer", "description": "Total number of source URLs the engine returned for this query." },
+        "response_truncated":{ "title": "Truncated?",      "type": "boolean", "description": "True if the engine hit the token limit." }
+    },
     "views": {
         "overview": {
             "title": "Citation checks",
