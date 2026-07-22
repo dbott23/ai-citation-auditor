@@ -158,3 +158,15 @@ Lower is better — rank 1 means your domain was the first source the engine cit
 
 **Can I use this alongside the AI Brand Visibility Tracker?**
 Yes — they're designed as a pair. The visibility tracker tells you whether AI *recommends* you by name; the citation auditor tells you whether AI *cites* your content as evidence. Both use the same query inputs so results are directly comparable.
+
+---
+
+## More from dbott23
+
+| Actor | What it does |
+|---|---|
+| [AI Brand Visibility Tracker](https://apify.com/dbott23/ai-brand-visibility-tracker) | Track how AI assistants mention your brand vs. competitors |
+| [App Store & Google Play Reviews Scraper](https://apify.com/dbott23/appstore-reviews-scraper) | Export iOS and Android app reviews by keyword or app ID |
+| [Trustpilot Reviews Scraper](https://apify.com/dbott23/trustpilot-reviews-scraper) | Export Trustpilot reviews to CSV or JSON — no API key needed |
+| [B2B Reviews Scraper](https://apify.com/dbott23/b2b-reviews-scraper) | Pull reviews from G2, Capterra, and Trustpilot in one run |
+| [Bluesky Posts Scraper](https://apify.com/dbott23/bluesky-posts-scraper) | Search and export Bluesky posts by keyword or user profile |
