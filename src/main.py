@@ -2,7 +2,7 @@
 
 For each (domain × query × engine) check: asks the engine the query, then
 inspects the structured citations it returns to see if the domain was cited,
-at what rank, and which URL. Charges pay-per-event per check.
+at what rank, and which URL. Charges per dataset item via apify-default-dataset-item.
 """
 from __future__ import annotations
 
@@ -71,9 +71,6 @@ async def main() -> None:
                 f"Resuming after migration: {len(done)} of "
                 f"{len(domains) * len(queries) * len(engines)} checks already done."
             )
-        else:
-            await Actor.charge("actor-start")
-
         for query in queries:
             for engine in engines:
                 cache_key = json.dumps([query, engine], sort_keys=True)
@@ -107,7 +104,6 @@ async def main() -> None:
                     await Actor.push_data(rec)
                     done.add(check_id)
                     await save_checkpoint()
-                    await Actor.charge("citation-check")
 
         summary = aggregate(records)
         deltas = None
